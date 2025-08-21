@@ -1,7 +1,3 @@
----
-
-### `package.json`
-```json
 {
   "name": "CanyenPalmerPort",
   "version": "1.0.0",

@@ -1,25 +1,7 @@
-# Node / Next.js
 node_modules
 .next
 out
-.next.cache
-.DS_Store
-.env
-.env.*
-*.local
-
-# Logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
-# Editor
-.vscode/
-.idea/
-
-# OS
-Thumbs.db
-
-# Vercel
+dist
 .vercel
+.env*
+.DS_Store

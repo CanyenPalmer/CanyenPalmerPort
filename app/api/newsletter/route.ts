@@ -4,13 +4,13 @@ export const runtime = "edge";
 export async function POST(req: Request) {
   let email = "";
 
-  // Try JSON first
+  // Try JSON
   try {
     const data = await req.clone().json();
     if (typeof data?.email === "string") email = data.email;
   } catch {}
 
-  // Fallback: URL-encoded form (from an HTML <form>)
+  // Fallback: x-www-form-urlencoded
   if (!email) {
     const body = await req.text();
     const params = new URLSearchParams(body);
@@ -18,8 +18,7 @@ export async function POST(req: Request) {
   }
 
   const ok = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
-  if (!ok) {
-    return NextResponse.json({ ok: false, error: "Invalid email" }, { status: 400 });
-  }
+  if (!ok) return NextResponse.json({ ok: false, error: "Invalid email" }, { status: 400 });
+
   return NextResponse.json({ ok: true, email });
 }

@@ -1,6 +1,6 @@
 # CanyenPalmerPort
 
-Interactive monthly-report style portfolio site built with Next.js + Tailwind + Edge route handlers.
+Interactive report style portfolio site built with Next.js + Tailwind + Edge route handlers.
 
 ## Getting Started
 ```bash

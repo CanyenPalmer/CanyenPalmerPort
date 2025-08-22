@@ -2,23 +2,15 @@
 import { useRouter } from 'next/navigation';
 import Game, { Stage } from '@/components/golf/Game';
 
-export default function GolfStep({
-  stage,
-  nextHref
-}: {
-  stage: Stage;      // tee | trees | bunker | green
-  nextHref: string;  // /projects | /experience | /education | /connect
-}) {
+export default function GolfStep({ stage, nextHref }: { stage: Stage; nextHref: string }) {
   const router = useRouter();
   return (
     <Game
       currentStage={stage}
-      onAdvance={(next) => {
-        // When this page's shot completes, navigate to the next section/page.
-        // We don't require the next stage value here; the route encodes the flow.
+      onAdvance={() => {
+        // Deterministic: always go to the next page for this stage
         router.push(nextHref);
       }}
     />
   );
 }
-
